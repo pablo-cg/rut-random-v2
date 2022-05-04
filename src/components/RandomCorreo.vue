@@ -2,7 +2,7 @@
 import TheHeaderCard from "./global/TheHeaderCard.vue";
 import TheMainList from "./global/TheMainList.vue";
 import emailImg from "@/assets/email.png";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 
 const emails = ref([]);
 
@@ -33,6 +33,10 @@ function generarEmails() {
     emails.value.push(getRandomEmail());
   }
 }
+
+onMounted(() => {
+  generarEmails();
+});
 </script>
 <template>
   <div class="container flex flex-col gap-8">

@@ -2,7 +2,7 @@
 import TheHeaderCard from "./global/TheHeaderCard.vue";
 import identityImg from "@/assets/identity.png";
 import TheMainList from "./global/TheMainList.vue";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { validate, format } from "@fiquu/cl-rut";
 
 const ruts = ref([]);
@@ -33,6 +33,10 @@ function generarRuts() {
     ruts.value.push(getValidRandomRut());
   }
 }
+
+onMounted(() => {
+  generarRuts();
+});
 </script>
 <template>
   <div class="container flex flex-col gap-8">
